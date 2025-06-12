@@ -1,43 +1,101 @@
 # Slooze Food Ordering Backend
 
-## About This Project
+## About the Project
 
-The Slooze Food Ordering Backend is a robust, modular, and scalable backend service designed to power modern food ordering platforms. Built with [NestJS](https://nestjs.com/), a progressive Node.js framework, and integrated with [TypeORM](https://typeorm.io/) for database management, this backend is crafted to enable seamless restaurant and customer experiences through fast, reliable, and secure APIs.
+The Slooze Food Ordering Backend is a scalable and modular server-side application designed to power a modern food ordering platform. Built using [NestJS](https://nestjs.com/), a progressive Node.js framework, and [TypeORM](https://typeorm.io/) for database operations, this backend provides a solid foundation for building reliable and maintainable food ordering systems. Key features include user authentication and management, restaurant and menu management, order processing, and payment integration, all exposed through a clean RESTful API.
 
-### Project Vision
+The backend’s design follows best practices in code organization, security, and extensibility. Each domain—users, restaurants, orders, payments—is encapsulated as a separate module, making it easy to extend or modify functionality as business needs evolve. The system is designed for easy deployment, whether for development, staging, or production environments, and can be quickly adapted for use with various frontends or third-party integrations.
 
-The food delivery industry is evolving rapidly, with customers expecting intuitive interfaces, real-time order tracking, and a wide variety of restaurant options. Slooze aims to meet these expectations by providing a backend that is not only feature-rich, but also maintainable and easy to extend as business requirements grow. This project lays a solid foundation for both startups and established businesses looking to launch or upgrade their food ordering infrastructure.
+### Features
 
-### Core Features
+- **User Management:** Registration, login, and role-based access control for customers and restaurant staff.
+- **Restaurant and Menu Management:** CRUD operations for restaurants, menu categories, and menu items.
+- **Order Processing:** Customers can place and track orders; restaurants can manage incoming orders.
+- **Payments:** Modular payment integration with support for adding new payment providers.
+- **API-first:** All features are exposed via clean, versioned REST APIs.
+- **Testing:** Includes unit and integration tests for reliability.
 
-**User Management:**  
-The system supports full user lifecycle management, including user registration, authentication, profile updates, and secure storage of credentials. Role-based access control ensures that customers, restaurant owners, and administrators have appropriate permissions within the application.
+---
 
-**Restaurant and Menu Management:**  
-Restaurants can register on the platform, update their profiles, and manage their menus. The backend supports CRUD operations for restaurants and menu items, enabling dynamic updates to offerings and prices.
+## Setup Instructions
 
-**Order Processing:**  
-Customers can browse restaurants, add items to their cart, and place orders. The order processing module handles order creation, real-time status updates (such as order confirmed, preparing, out for delivery, and delivered), and historical order tracking for both customers and restaurants.
+### 1. Clone the Repository
 
-**Payment Integration:**  
-The backend is designed with modular payment integration in mind. It includes a basic payment module that can be extended to support popular payment gateways, ensuring secure and reliable transactions.
+```bash
+git clone https://github.com/Anjan2222/slooze-backend.git
+cd slooze-backend
+```
 
-**API-First Design:**  
-All features are exposed via RESTful APIs, making it easy to build web or mobile frontends and to support third-party integrations. The project follows best practices for API versioning, validation, and error handling.
+### 2. Install Dependencies
 
-### Technical Highlights
+```bash
+npm install
+```
 
-- **NestJS Architecture:** The use of modules, controllers, and services keeps the codebase organized and scalable.
-- **TypeORM Integration:** Simplifies database operations and supports migrations, making it easy to manage schema changes and data consistency.
-- **Configuration Management:** Environment variables and configuration files are used to keep sensitive information secure and deployments flexible.
-- **Testing:** The project includes unit and integration tests to ensure reliability and to make future development safer.
+### 3. Configure the Database
 
-### Getting Started
+This project uses PostgreSQL by default. Update the database configuration in `src/app.module.ts` or use environment variables to match your setup:
 
-Developers can easily clone the repository, install dependencies, configure database connections, and start running the backend locally. The modular structure allows adding new features—such as promotions, notifications, or analytics—without significant refactoring.
+```typescript
+TypeOrmModule.forRoot({
+  type: 'postgres',
+  host: 'localhost',
+  port: 5432,
+  username: 'your_username',
+  password: 'your_password',
+  database: 'slooze_db',
+  autoLoadEntities: true,
+  synchronize: true,
+}),
+```
 
-### Future Scope
+> **Note:** You can also use SQLite for local development by adjusting the TypeORM config.
 
-As the food ordering ecosystem grows, the Slooze backend is designed to accommodate features like real-time order tracking with WebSockets, advanced analytics for restaurant partners, loyalty programs for customers, and integration with delivery partners for automated dispatch.
+### 4. Run Migrations (Optional)
 
+If you add migrations in the future, run:
+```bash
+npm run typeorm migration:run
+```
 
+### 5. Start the Server
+
+```bash
+npm run start
+```
+
+By default, the backend will run at [http://localhost:3000](http://localhost:3000).
+
+---
+
+## Run Instructions
+
+- **Development:**  
+  Start the server with hot-reloading:
+  ```bash
+  npm run start:dev
+  ```
+- **Testing:**  
+  Run all tests:
+  ```bash
+  npm run test
+  ```
+- **Production:**  
+  Build and run:
+  ```bash
+  npm run build
+  npm run start:prod
+  ```
+
+---
+
+## API Overview
+
+Core endpoints:
+- `POST /user` — Register a new user
+- `POST /auth/login` — Login
+- `GET /restaurants` — List all restaurants
+- `POST /orders` — Place a new order
+- ...and many more (see `src/` modules for details)
+
+**Thank you for reviewing my project!**
