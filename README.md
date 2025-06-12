@@ -1,61 +1,43 @@
-[NestJS Logo - https://nestjs.com/img/logo-small.svg]
-A progressive Node.js framework for building efficient and scalable server-side applications.
-Badges
-NPM Version: https://img.shields.io/npm/v/@nestjs/core.svg
-Package License: https://img.shields.io/npm/l/@nestjs/core.svg
-NPM Downloads: https://img.shields.io/npm/dm/@nestjs/common.svg
-CircleCI: https://img.shields.io/circleci/build/github/nestjs/nest/master
-Discord: https://img.shields.io/badge/discord-online-brightgreen.svg
-Backers: https://opencollective.com/nest/backers/badge.svg
-Sponsors: https://opencollective.com/nest/sponsors/badge.svg
-Donate us: https://img.shields.io/badge/Donate-PayPal-ff3f59.svg
-Support us: https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg
-Follow us on Twitter: https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow
-Slooze Food Ordering Backend
-This is the backend for the Slooze Food Ordering project, built with NestJS and TypeORM using a PostgreSQL database.
-🚀 Features
-- User registration and management
-- Restaurant and menu management
-- Order and payment processing
-- Modular architecture with NestJS
-- Database integration with TypeORM
-🏗️ Project Structure
-backend/
-  src/
-    orders/
-    payments/
-    restaurants/
-    user/
-    app.module.ts
-    main.ts
-  data/
-    users.csv / users.json
-⚙️ Getting Started
-1. Clone the Repository:
-   git clone https://github.com/Anjan2222/slooze-backend.git
-   cd slooze-backend
+# Slooze Food Ordering Backend
 
-2. Install Dependencies:
-   npm install
+## About This Project
 
-3. Database Configuration: Update 'src/app.module.ts'
+The Slooze Food Ordering Backend is a robust, modular, and scalable backend service designed to power modern food ordering platforms. Built with [NestJS](https://nestjs.com/), a progressive Node.js framework, and integrated with [TypeORM](https://typeorm.io/) for database management, this backend is crafted to enable seamless restaurant and customer experiences through fast, reliable, and secure APIs.
 
-4. Start the Server:
-   npm run start
-📦 API Endpoints
-- GET /user — List all users
-- POST /user — Create a new user
-- GET /restaurants — List all restaurants
-- POST /orders — Place an order
-📝 Exporting Data
-COPY "user" TO 'C:/Users/Sambayya/slooze-food-ordering/backend/data/users.csv' DELIMITER ',' CSV HEADER;
-📨 Submission Instructions (for Slooze Careers)
-1. Push your complete solution to your GitHub repository.
-2. Email your repo link to careers@slooze.xyz with subject:
-   SUB: Backend Engineer | Anjan
-🤝 Contributing
-Pull requests are welcome! Please open an issue first to discuss changes.
-📄 License
-MIT
-Thank you
-Thank you for reviewing my work!
+### Project Vision
+
+The food delivery industry is evolving rapidly, with customers expecting intuitive interfaces, real-time order tracking, and a wide variety of restaurant options. Slooze aims to meet these expectations by providing a backend that is not only feature-rich, but also maintainable and easy to extend as business requirements grow. This project lays a solid foundation for both startups and established businesses looking to launch or upgrade their food ordering infrastructure.
+
+### Core Features
+
+**User Management:**  
+The system supports full user lifecycle management, including user registration, authentication, profile updates, and secure storage of credentials. Role-based access control ensures that customers, restaurant owners, and administrators have appropriate permissions within the application.
+
+**Restaurant and Menu Management:**  
+Restaurants can register on the platform, update their profiles, and manage their menus. The backend supports CRUD operations for restaurants and menu items, enabling dynamic updates to offerings and prices.
+
+**Order Processing:**  
+Customers can browse restaurants, add items to their cart, and place orders. The order processing module handles order creation, real-time status updates (such as order confirmed, preparing, out for delivery, and delivered), and historical order tracking for both customers and restaurants.
+
+**Payment Integration:**  
+The backend is designed with modular payment integration in mind. It includes a basic payment module that can be extended to support popular payment gateways, ensuring secure and reliable transactions.
+
+**API-First Design:**  
+All features are exposed via RESTful APIs, making it easy to build web or mobile frontends and to support third-party integrations. The project follows best practices for API versioning, validation, and error handling.
+
+### Technical Highlights
+
+- **NestJS Architecture:** The use of modules, controllers, and services keeps the codebase organized and scalable.
+- **TypeORM Integration:** Simplifies database operations and supports migrations, making it easy to manage schema changes and data consistency.
+- **Configuration Management:** Environment variables and configuration files are used to keep sensitive information secure and deployments flexible.
+- **Testing:** The project includes unit and integration tests to ensure reliability and to make future development safer.
+
+### Getting Started
+
+Developers can easily clone the repository, install dependencies, configure database connections, and start running the backend locally. The modular structure allows adding new features—such as promotions, notifications, or analytics—without significant refactoring.
+
+### Future Scope
+
+As the food ordering ecosystem grows, the Slooze backend is designed to accommodate features like real-time order tracking with WebSockets, advanced analytics for restaurant partners, loyalty programs for customers, and integration with delivery partners for automated dispatch.
+
+
